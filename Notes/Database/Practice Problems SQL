@@ -1,0 +1,73 @@
+CREATE TABLE Employees (
+    emp_id INT PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    department VARCHAR(50),
+    salary DECIMAL(10),
+    hire_date DATE
+);
+
+INSERT INTO Employees (emp_id, first_name, last_name, department, salary, hire_date)
+VALUES
+(1, 'Rahul', 'Sharma', 'IT', 65000.00, '2021-06-15'),
+(2, 'Priya', 'Verma', 'HR', 48000.00, '2020-09-01'),
+(3, 'Amit', 'Kumar', 'Finance', 72000.00, '2019-11-23'),
+(4, 'Sneha', 'Patil', 'Marketing', 55000.00, '2022-01-10'),
+(5, 'Vikram', 'Singh', 'IT', 80000.00, '2018-03-05'),
+(6, 'Neha', 'Joshi', 'Finance', 69000.00, '2021-12-20'),
+(7, 'Ravi', 'Yadav', 'Operations', 53000.00, '2020-05-18'),
+(8, 'Anjali', 'Mehta', 'IT', 75000.00, '2019-08-29'),
+(9, 'Karan', 'Kapoor', 'Marketing', 60000.00, '2023-02-14'),
+(10, 'Pooja', 'Reddy', 'HR', 50000.00, '2021-04-07');
+
+Select * from Employees
+
+-- WAQ to showcase the first name and the hiring date of each Emp
+SELECT first_name, hire_date FROM Employees
+
+-- WAQ to find the name of emp having salary more than 50000
+SELECT first_name, salary FROM Employees WHERE salary > 50000
+
+-- WAQ to find the emp_id and first_name of the emp working in IT dept
+SELECT emp_id, first_name FROM Employees WHERE department = 'IT'
+
+-- WAQ to find the emp_id and the first name of the emp working in IT or HR dept
+SELECT emp_id, first_name FROM Employees WHERE department = 'IT' or department = 'HR'
+
+-- WAQ to find the emp_id and the first name of the emp working in IT or HR or marketing dept
+SELECT emp_id, first_name FROM Employees WHERE department = 'IT' or department = 'HR' or 
+												department = 'Marketing'
+
+SELECT emp_id, first_name FROM Employees WHERE department IN ('IT', 'HR', 'Marketing')
+SELECT emp_id, first_name FROM Employees WHERE department any ('IT', 'HR', 'Marketing')
+
+-- WAQ to find the name and the hiring date of the emp having sal in between 30,000 to 60,000
+SELECT first_name, hire_date FROM Employees WHERE salary >= 30000 and salary <= 60000
+SELECT first_name, hire_date FROM Employees WHERE salary BETWEEN 30000 AND 60000
+
+-- WAQ to sort the emp table by salary in increasing order
+SELECT * FROM Employees ORDER BY hire_date
+SELECT * FROM Employees ORDER BY salary DESC
+
+-- WAQ to print the name of emp starting with letter P
+SELECT first_name FROM Employees WHERE first_name like 'P%'
+
+-- WAQ to print the emp ID whose name ends with a
+SELECT emp_id FROM Employees WHERE first_name like '%a'
+
+-- WAQ to print the name of the emp having second letter as a
+SELECT first_name FROM Employees WHERE first_name like '_a%'
+
+-- WAQ to print the name of the emp having second letter as o, fourth letter as J
+SELECT first_name FROM Employees WHERE first_name like '_o_j%'
+
+-- WAQ to print the name of the emp having first letter as P and last letter as a
+SELECT first_name FROM Employees WHERE first_name like 'P%a'
+--
+
+
+
+
+
+
+
