@@ -1,0 +1,56 @@
+
+-- DDL (Data Defination Language)
+-- 1. CREATE: create the table of student
+CREATE TABLE Student (Roll int, Name varchar(30), Marks int);
+
+-- 2. ALTER 
+-- ADD THE COL
+ALTER TABLE Student ADD Dept varchar(20);
+
+-- 3. DELETE THE COL
+ALTER TABLE Student DROP Dept;
+
+-- 4. DROP
+DROP TABLE Student
+
+-- ------------------------------------ ----------------------------------
+-- DML (Data Manupilation Language)
+-- 1. INSERT
+
+INSERT INTO Student VALUES (101, 'Yash', 50)
+INSERT INTO Student VALUES (103, 'Pratik', 70)
+INSERT INTO Student VALUES (107, 'Harsh', 90)
+
+INSERT INTO Student VALUES (111, 'Payal', 60), (110, 'Snehal', 30), (130, 'Sushant', 90)
+
+-- 2. TRUNCATE : MAINLY USED TO REMOVE THE ROW WISE DATA (ALL THE ROWS)
+TRUNCATE TABLE Student
+
+
+-- 3. SELECT: To fetch the data from database
+Select * from Student
+
+SELECT roll FROM Student
+
+SELECT roll, marks FROM Student
+
+-- 4. WHERE CLAUSE : in programming we use if() else here in DB we use WHERE
+
+SELECT name FROM Student WHERE marks = 90;
+
+SELECT marks from student where roll = 130
+
+-- 5. UPDATE: WE CAN UPDATE COL NAME OR ANY VALUE
+UPDATE Student SET marks = 40 WHERE roll = 130
+
+-- 6. DELETE
+DELETE FROM Student
+
+DELETE FROM Student WHERE roll = 110
+
+
+
+
+
+
+
