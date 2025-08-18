@@ -65,6 +65,52 @@ SELECT first_name FROM Employees WHERE first_name like '_o_j%'
 SELECT first_name FROM Employees WHERE first_name like 'P%a'
 --
 
+----------------------------------------------------------------------------
+
+JOINS
+
+
+CREATE TABLE T1 (roll int, name varchar(20), dept varchar(10));
+INSERT INTO T1 VALUES (1, 'Aniket', 'CS'), (2, 'Sushant', 'Civil'), (3, 'Pramod', 'Mech'), 
+INSERT INTO T1 VALUES (5, 'Diksha', 'Chemical')
+select * from T1
+TRUNCATE TABLE T1
+
+
+CREATE TABLE T2 (dept varchar(20), college varchar(20));
+INSERT INTO T2 VALUES ('CS', 'X'), ('Civil', 'Y'), ('Mech', 'Z')
+INSERT INTO T2 VALUES ('Metalurgi', 'P')
+
+select * from T2
+ALTER TABLE T2 ADD college varchar(20)
+DELETE from T2 WHERE dept is null
+
+-- CARTESION PRODUCT : CROSS JOIN
+SELECT * FROM T1, T2
+
+-- THETA JOIN (any condition is valid i.e = / < / > / !=)
+SELECT * FROM T1, T2 WHERE T1.roll < T2.roll
+
+-- INNER JOIN (Equi Join)
+SELECT * FROM T1, T2 WHERE T1.roll = T2.roll
+
+-- NATURAL JOIN
+SELECT * FROM T1 NATURAL JOIN T2
+
+
+-- OUTER JOINS
+-- 1. LEFT OUTER JOIN
+-- 2. RIGHT OUTER JOIN
+-- 3. FULL OUTER JOIN
+
+-- LEFT JOIN
+SELECT * FROM T1 LEFT JOIN T2 ON T1.dept = T2.dept
+
+-- RIGHT JOIN
+SELECT * FROM T1 RIGHT JOIN T2 ON T1.dept = T2.dept
+
+-- FULL OUTER JOIN
+SELECT * FROM T1 FULL JOIN T2 ON T1.dept = T2.dept
 
 
 
